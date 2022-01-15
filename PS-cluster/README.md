@@ -43,7 +43,9 @@ The format of the genetic mapping file must be 2 tab-separated fields per line: 
 ## Results
 When finished executing, PS-cluster will generate a file with the extension ".blocks".
 
-Note that PS-cluster generates 3 intermediate files with the extensions ".rpbwt", ".sites", and ".meta" during execution that are deleted upon completion. The ".rpbwt" file stores the reverse positional prefix array and reverse divergence array in binary format (each value takes 4 bytes) and takes up around four times the disk space of the VCF file. The ".sites" file stores the genomic position of each site on its own line. The ".meta" files stores two space-separated values M and N representing the number of haplotypes and the number of sites in the VCF file.
+The file ".blocks" represents each block on its own line with five space-separated fields `<starting site of block> <ending site of block> <starting physical location of block> <ending physical location of block> <starting genetic location of block> <ending genetic location of block> <width of block>` followed by space seperated ID's of all the haplotypes in the block. IDs are suffixed with either "-0" or "-1" indicating the first and second haplotype of the individual ID, respectively.
+
+Note that PS-cluster generates 3 intermediate files with the extensions ".rpbwt", ".sites", and ".meta" during execution that are deleted upon completion. The ".rpbwt" file stores the reverse positional prefix array and reverse divergence array in binary format (each value takes 4 bytes) and takes up around four times the disk space of the VCF file. The ".sites" file stores the physical position of each site on its own line. The ".meta" files stores two space-separated values M and N representing the number of haplotypes and the number of sites in the VCF file.
 
 ## Citation
 If you found our work useful in your research, please consider citing the following paper:

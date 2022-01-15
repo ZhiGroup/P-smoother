@@ -134,7 +134,7 @@ struct PBWT {
 		for (int i = 0; i < M; ++i) {
 			if (map[div[i]] > map[site] - L_min) {
 				if (i - start >= W_min && min(zero, one) != 0) {
-					blocks << maxi << ' ' << (site - 1) << ' ' << positions[maxi] << ' ' << positions[site - 1] << ' ' << (i - start); 
+					blocks << maxi << ' ' << (site - 1) << ' ' << positions[maxi] << ' ' << positions[site - 1] << ' ' << map[maxi] << ' ' << map[site - 1] << ' ' << (i - start); 
 					for (int j = start; j < i; ++j) blocks << ' ' << vcf.ID[pre[j]];
 					blocks << '\n';
 				}
@@ -146,7 +146,7 @@ struct PBWT {
 			else ++one;
 		}
 		if (M - start >= W_min && min(zero, one) != 0) {
-			blocks << maxi << ' ' << (site - 1) << ' ' << positions[maxi] << ' ' << positions[site - 1] << ' ' << (M - start);
+			blocks << maxi << ' ' << (site - 1) << ' ' << positions[maxi] << ' ' << positions[site - 1] << ' ' << map[maxi] << ' ' << map[site - 1] << ' ' << (M - start);
 			for (int j = start; j < M; ++j) blocks << ' ' << vcf.ID[pre[j]];
 			blocks << '\n';
 		}
